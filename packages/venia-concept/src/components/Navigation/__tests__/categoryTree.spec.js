@@ -153,7 +153,8 @@ test('renders with product data', async () => {
         </MockedProvider>
     );
 
-    await wait();
+    // TODO: See issue for details: https://github.com/magento-research/pwa-studio/issues/736
+    await wait(500);
 
     expect(root.findAllByType(Branch).length).toBe(2);
     expect(root.findAllByType(Leaf).length).toBe(3);

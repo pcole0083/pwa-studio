@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { bool, func, shape, string } from 'prop-types';
 
 import classify from 'src/classify';
@@ -35,13 +34,13 @@ class Thumbnail extends Component {
         item.isSelected ? (className += ` ${classes.active}`) : className;
 
         return (
-            <div
+            <button
                 className={className}
                 onClick={this.handleClick}
                 data-selected={item.isSelected}
             >
                 <img className={classes.image} src={src} alt={item.label} />
-            </div>
+            </button>
         );
     }
 }

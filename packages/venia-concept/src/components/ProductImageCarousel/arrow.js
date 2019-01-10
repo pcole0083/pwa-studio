@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { func, number, shape, string } from 'prop-types';
 
 import classify from 'src/classify';

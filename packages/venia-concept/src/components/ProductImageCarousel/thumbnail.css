@@ -3,13 +3,25 @@
     border: 1px solid rgb(var(--venia-text-hint));
     border-radius: 50%;
     height: 1rem;
+    outline: none;
     transition: background-color 0.2s linear 0.1s, border-color 0.2s linear 0.1s;
     width: 1rem;
+
+    -webkit-tap-highlight-color: transparent;
+    -ms-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+.root:active,
+.root:focus {
+    outline: none;
 }
 
 .active {
     background-color: rgb(var(--venia-text));
     border-color: rgb(var(--venia-text));
+    outline: none;
 }
 
 @media (min-width: 1024px) {

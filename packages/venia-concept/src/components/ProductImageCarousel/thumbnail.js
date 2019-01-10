@@ -20,10 +20,10 @@ class Thumbnail extends Component {
     handleClick = () => {
         const { item, onClick } = this.props;
 
-        if(onClick) {
+        if (onClick) {
             onClick(item.position - 1);
         }
-    }
+    };
 
     render() {
         const { classes, item } = this.props;
@@ -35,7 +35,11 @@ class Thumbnail extends Component {
         item.isSelected ? (className += ` ${classes.active}`) : className;
 
         return (
-            <div className={className} onClick={this.handleClick} data-selected={item.isSelected} >
+            <div
+                className={className}
+                onClick={this.handleClick}
+                data-selected={item.isSelected}
+            >
                 <img className={classes.image} src={src} alt={item.label} />
             </div>
         );

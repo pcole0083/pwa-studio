@@ -21,5 +21,5 @@ export default combineReducers({
     purchaseDetails,
     purchaseHistory,
     user,
-    product,
+    product
 });

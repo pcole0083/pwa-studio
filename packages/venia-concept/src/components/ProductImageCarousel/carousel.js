@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { arrayOf, bool, func, number, objectOf, shape, string } from 'prop-types';
+import {
+    arrayOf,
+    bool,
+    func,
+    number,
+    objectOf,
+    shape,
+    string
+} from 'prop-types';
 import memoize from 'memoize-one';
 
 import { updateGalleryIndex } from 'src/actions/product';
@@ -21,7 +29,7 @@ class Carousel extends Component {
                 position: number,
                 disabled: bool,
                 file: string.isRequired
-            }),
+            })
         ).isRequired,
         galleryImageIndex: number.isRequired
     };
@@ -42,12 +50,12 @@ class Carousel extends Component {
             })
     );
 
-    updateCurrentImageIndex = ( imgSet ) => {
+    updateCurrentImageIndex = imgSet => {
         const { images, updateGalleryIndex } = this.props;
         const sortedImages = this.sortAndFilterImages(images);
         const imgPath = Array.from(imgSet)[0];
 
-        const selectedIndex = sortedImages.findIndex(( image ) => { 
+        const selectedIndex = sortedImages.findIndex(image => {
             return image.file === imgPath;
         });
 
@@ -55,11 +63,7 @@ class Carousel extends Component {
     };
 
     render() {
-        const { 
-            props,
-            sortAndFilterImages,
-            updateCurrentImageIndex
-        } = this;
+        const { props, sortAndFilterImages, updateCurrentImageIndex } = this;
 
         const {
             classes,
@@ -93,13 +97,13 @@ class Carousel extends Component {
                 <Arrow
                     direction="left"
                     galleryImageIndex={galleryImageIndex}
-                    maxIndex={sortedImages.length-1}
+                    maxIndex={sortedImages.length - 1}
                     onClick={updateGalleryIndex}
                 />
                 <Arrow
                     direction="right"
                     galleryImageIndex={galleryImageIndex}
-                    maxIndex={sortedImages.length-1}
+                    maxIndex={sortedImages.length - 1}
                     onClick={updateGalleryIndex}
                 />
             </div>
@@ -108,7 +112,9 @@ class Carousel extends Component {
 }
 
 const mapStateToProps = state => {
-    const galleryImageIndex = state.product ? state.product.galleryImageIndex : 0;
+    const galleryImageIndex = state.product
+        ? state.product.galleryImageIndex
+        : 0;
 
     return {
         galleryImageIndex

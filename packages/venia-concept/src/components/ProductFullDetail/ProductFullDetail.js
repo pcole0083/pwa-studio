@@ -174,7 +174,10 @@ class ProductFullDetail extends Component {
                     </p>
                 </section>
                 <section className={classes.imageCarousel}>
-                    <Carousel images={product.media_gallery_entries} galleryImageIndex={0} />
+                    <Carousel
+                        images={product.media_gallery_entries}
+                        galleryImageIndex={0}
+                    />
                 </section>
                 <section className={classes.options}>{productOptions}</section>
                 <section className={classes.quantity}>

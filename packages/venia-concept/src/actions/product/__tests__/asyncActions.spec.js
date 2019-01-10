@@ -29,6 +29,6 @@ test('updateGalleryIndex thunk dispatches actions', async () => {
     expect(dispatch).toHaveBeenCalledTimes(1);
 
     const { updateedGalleryIndex } = getState();
-    
+
     expect(updateedGalleryIndex).toBe(payload);
 });

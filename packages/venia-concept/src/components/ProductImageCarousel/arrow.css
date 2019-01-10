@@ -3,8 +3,8 @@
     color: rgb(var(--venia-text-hint));
     display: grid;
     outline: transparent auto 0;
-    transition: color .2s linear .1s, outline .2s linear .1s;
-    
+    transition: color 0.2s linear 0.1s, outline 0.2s linear 0.1s;
+
     -webkit-tap-highlight-color: transparent;
     -ms-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent;
@@ -20,7 +20,7 @@
 
 .root > span {
     color: rgb(var(--venia-text-hint));
-    transition: color .2s linear .2s;
+    transition: color 0.2s linear 0.2s;
 }
 
 .root:active,

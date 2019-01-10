@@ -3,7 +3,7 @@
     border: 1px solid rgb(var(--venia-text-hint));
     border-radius: 50%;
     height: 1rem;
-    transition: background-color .2s linear .1s, border-color .2s linear .1s;
+    transition: background-color 0.2s linear 0.1s, border-color 0.2s linear 0.1s;
     width: 1rem;
 }
 
@@ -17,7 +17,7 @@
         border: 0;
         border-radius: 0;
         height: auto;
-        transition: box-shadow .2s linear .1s;
+        transition: box-shadow 0.2s linear 0.1s;
         width: auto;
     }
     .active {

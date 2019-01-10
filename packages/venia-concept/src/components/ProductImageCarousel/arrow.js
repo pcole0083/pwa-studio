@@ -24,17 +24,19 @@ class Arrow extends Component {
 
         let newIndex = 0;
 
-        if(direction === 'left'){
+        if (direction === 'left') {
             newIndex = galleryImageIndex - 1 <= 0 ? 0 : galleryImageIndex - 1;
-        }
-        else if(direction === 'right'){
-            newIndex = galleryImageIndex + 1 >= maxIndex ? maxIndex : galleryImageIndex + 1;
+        } else if (direction === 'right') {
+            newIndex =
+                galleryImageIndex + 1 >= maxIndex
+                    ? maxIndex
+                    : galleryImageIndex + 1;
         }
 
-        if(onClick) {
+        if (onClick) {
             onClick(newIndex);
         }
-    }
+    };
 
     render() {
         const { classes, direction } = this.props;
@@ -50,7 +52,11 @@ class Arrow extends Component {
         let iconName = 'chevron-' + direction;
 
         return (
-            <button className={className} onClick={this.handleClick} type="button" >
+            <button
+                className={className}
+                onClick={this.handleClick}
+                type="button"
+            >
                 <Icon name={iconName} attrs={attrs} />
             </button>
         );

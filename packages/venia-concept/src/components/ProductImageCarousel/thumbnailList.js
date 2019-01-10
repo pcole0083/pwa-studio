@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { arrayOf, bool, func, number, shape, string } from 'prop-types';
 import { List } from '@magento/peregrine';
 
 import classify from 'src/classify';
@@ -8,15 +8,16 @@ import defaultClasses from './thumbnailList.css';
 
 class ThumbnailList extends Component {
     static propTypes = {
-        classes: PropTypes.shape({
-            root: PropTypes.string
+        classes: shape({
+            root: string
         }),
-        items: PropTypes.arrayOf(
-            PropTypes.shape({
-                label: PropTypes.string,
-                position: PropTypes.number,
-                disabled: PropTypes.bool,
-                file: PropTypes.string.isRequired
+        items: arrayOf(
+            shape({
+                label: string,
+                position: number,
+                disabled: bool,
+                file: string.isRequired,
+                isSelected: bool
             })
         ).isRequired
     };

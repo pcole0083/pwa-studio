@@ -1,0 +1,42 @@
+.root {
+    align-items: center;
+    color: rgb(var(--venia-text-hint));
+    display: grid;
+    outline: transparent auto 0;
+    transition: color .2s linear .1s, outline .2s linear .1s;
+    
+    -webkit-tap-highlight-color: transparent;
+    -ms-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+.left {
+    grid-area: arrow-left;
+}
+.right {
+    grid-area: arrow-right;
+}
+
+.root > span {
+    color: rgb(var(--venia-text-hint));
+    transition: color .2s linear .2s;
+}
+
+.root:active,
+.root:focus,
+.root:hover {
+    outline: rgba(var(--venia-border), 0.5) auto 3px;
+}
+
+.root:active > span,
+.root:focus > span,
+.root:hover > span {
+    color: rgb(var(--venia-text));
+}
+
+@media (min-width: 1024px) {
+    .root {
+        display: none;
+    }
+}

@@ -1,8 +1,8 @@
 .root {
     display: grid;
     grid-template-areas:
-        'main'
-        'thumbs';
+        'arrow-left main arrow-right'
+        'arrow-left thumbs arrow-right';
     grid-template-columns: auto;
     grid-template-rows: auto;
 }

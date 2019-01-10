@@ -1,8 +1,15 @@
 .root {
-    border: 1px solid rgb(var(--venia-text));
+    background-color: rgb(var(--venia-text-hint));
+    border: 1px solid rgb(var(--venia-text-hint));
     border-radius: 50%;
     height: 1rem;
+    transition: background-color .2s linear .1s, border-color .2s linear .1s;
     width: 1rem;
+}
+
+.active {
+    background-color: rgb(var(--venia-text));
+    border-color: rgb(var(--venia-text));
 }
 
 @media (min-width: 1024px) {
@@ -10,7 +17,11 @@
         border: 0;
         border-radius: 0;
         height: auto;
+        transition: box-shadow .2s linear .1s;
         width: auto;
+    }
+    .active {
+        box-shadow: 0 0 0 4px rgb(var(--venia-grey));
     }
 }
 

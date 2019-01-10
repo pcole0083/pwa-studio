@@ -60,7 +60,7 @@ class ProductFullDetail extends Component {
 
         // if this is a simple product, do nothing
         if (!Array.isArray(configurable_options)) {
-            return;
+            return null;
         }
 
         // otherwise, cache attribute codes to avoid lookup cost later
@@ -174,7 +174,7 @@ class ProductFullDetail extends Component {
                     </p>
                 </section>
                 <section className={classes.imageCarousel}>
-                    <Carousel images={product.media_gallery_entries} />
+                    <Carousel images={product.media_gallery_entries} galleryImageIndex={0} />
                 </section>
                 <section className={classes.options}>{productOptions}</section>
                 <section className={classes.quantity}>

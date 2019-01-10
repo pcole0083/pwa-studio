@@ -1,11 +1,12 @@
 .root {
     align-content: stretch;
     display: grid;
+    grid-area: thumbs;
     grid-auto-flow: column;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, 1rem);
     justify-content: center;
-    margin-top: -3rem;
+    margin-top: 2rem;
 }
 
 @media (min-width: 1024px) {

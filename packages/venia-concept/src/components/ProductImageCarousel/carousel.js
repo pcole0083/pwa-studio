@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import {
-    arrayOf,
-    bool,
-    number,
-    objectOf,
-    shape,
-    string
-} from 'prop-types';
+import { arrayOf, bool, number, objectOf, shape, string } from 'prop-types';
 import memoize from 'memoize-one';
 
 import { updateGalleryIndex } from 'src/actions/product';

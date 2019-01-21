@@ -156,4 +156,5 @@
     "xml": "~1.0.1"
   },
   "dependencies": {}
+    "interweave": "~10.0.0",
 }

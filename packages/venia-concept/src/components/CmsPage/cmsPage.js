@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import { array, func, oneOfType, shape, string } from 'prop-types';
+import { func, shape, string } from 'prop-types';
 import { Query } from 'react-apollo';
-import { loadingIndicator } from 'src/components/LoadingIndicator';
-{/* TODO: Switch to RichContent component from Peregrine when merged */}
-import { RichText } from 'src/components/RichText';
+import { loadingIndicator } from '../LoadingIndicator';
+import { Link } from 'react-router-dom';
 
 import classify from 'src/classify';
 import defaultClasses from './cmsPage.css';
 import getCmsPage from '../../queries/getCmsPage.graphql';
+
+import Interweave, { Node } from 'interweave';
+
+const makeLink = function(node, children) {
+  if (node.tagName.toLowerCase() === 'a') {
+    return <Link to={node.getAttribute('href')}>{children}</Link>;
+  }
+};
 
 class CmsPage extends Component {
     static propTypes = {
@@ -20,27 +27,33 @@ class CmsPage extends Component {
         id: string.isRequired
     };
 
-    renderData = ({ data, error, loading }) => {
-        const { children, classes } = this.props;
+    processHTML = htmlData => {
+        return <Interweave content={htmlData} transform={makeLink} />;
+    }
 
-        if (error || !data.cmsPage && !loading) {
-            return !!error && !!error.message ? <p>{error.message}</p> : <p>Data Fetch Error</p>;
-        }
+    renderData = ({ data, error, loading }) => {
+        const { processHTML, props } = this;
+        const { classes } = props;
 
         if (loading) {
-            return (
-                loadingIndicator
+            return loadingIndicator;
+        }
+
+        if (error) {
+            return !!error.message ? (
+                <p>{error.message}</p>
+            ) : (
+                <p>Data Fetch Error</p>
             );
         }
 
-        const { content, content_heading, title } = data.cmsPage;
-
+        const { content, content_heading } = data.cmsPage;
+        console.log(content);
         return (
-            <article>
+            <section>
                 <h2 className={classes.heading}>{content_heading}</h2>
-                {/* TODO: Switch to RichContent component from Peregrine when merged */}
-                <RichText content={content} classes={classes} />
-            </article>
+                <div className={classes.content}>{processHTML(content)}</div>
+            </section>
         );
     };
 

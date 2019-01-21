@@ -1,0 +1,21 @@
+.root {
+    margin: 1rem;
+}
+
+.heading {
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content {
+    display: block;
+}
+
+.content img {
+    display: block;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}

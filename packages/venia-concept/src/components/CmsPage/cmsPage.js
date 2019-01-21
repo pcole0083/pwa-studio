@@ -8,12 +8,12 @@ import classify from 'src/classify';
 import defaultClasses from './cmsPage.css';
 import getCmsPage from '../../queries/getCmsPage.graphql';
 
-import Interweave, { Node } from 'interweave';
+import Interweave from 'interweave';
 
 const makeLink = function(node, children) {
-  if (node.tagName.toLowerCase() === 'a') {
-    return <Link to={node.getAttribute('href')}>{children}</Link>;
-  }
+    if (node.tagName.toLowerCase() === 'a') {
+        return <Link to={node.getAttribute('href')}>{children}</Link>;
+    }
 };
 
 class CmsPage extends Component {
@@ -29,7 +29,7 @@ class CmsPage extends Component {
 
     processHTML = htmlData => {
         return <Interweave content={htmlData} transform={makeLink} />;
-    }
+    };
 
     renderData = ({ data, error, loading }) => {
         const { processHTML, props } = this;

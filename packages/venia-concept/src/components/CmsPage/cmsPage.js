@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func, shape, string } from 'prop-types';
+import { func, number, shape, string } from 'prop-types';
 import { Query } from 'react-apollo';
 import { loadingIndicator } from '../LoadingIndicator';
 import { Link } from 'react-router-dom';
@@ -24,7 +24,7 @@ class CmsPage extends Component {
             heading: string,
             root: string
         }),
-        id: string.isRequired
+        id: number.isRequired
     };
 
     processHTML = htmlData => {
@@ -48,7 +48,7 @@ class CmsPage extends Component {
         }
 
         const { content, content_heading } = data.cmsPage;
-        console.log(content);
+
         return (
             <section>
                 <h2 className={classes.heading}>{content_heading}</h2>
